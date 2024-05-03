@@ -6,9 +6,23 @@ class Person {
   sayHello(){
     return `Hello my name is ${this.name}`
   }
+
   visit(otherPerson){
     return `${this.name} visited ${otherPerson}`
   }
+
+  switchVisit(otherPerson) {
+    let boundFunc = this.visit.bind(this)
+    return boundFunc(otherPerson.name)
+  }
+
+  update(Obj) {
+    this.name = Obj.name
+    this.age = Obj.age
+    return this;
+  }
 }
+
+
 
 module.exports = Person;
